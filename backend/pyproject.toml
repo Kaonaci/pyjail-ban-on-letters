@@ -1,0 +1,15 @@
+[project]
+name = "backend"
+version = "0.1.0"
+description = "Backend for Pyjail-ban-on-letters"
+authors = [
+    { name = "Kaonaci", email = "210601020+Kaonaci@users.noreply.github.com" }
+]
+requires-python = ">=3.12"
+dependencies = [
+    "fastapi",
+    "uvicorn[standard]",
+]
+
+[project.scripts]
+backend = "backend:main"

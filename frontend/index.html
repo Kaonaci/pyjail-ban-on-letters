@@ -1,0 +1,94 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Character replacement pipeline">
+  <title>Character Replacement</title>
+  <link rel="stylesheet" href="/static/style.css">
+
+  <!-- Reordering and panel-resizing libraries. Versions are pinned deliberately. -->
+  <script defer src="https://cdn.jsdelivr.net/npm/sortablejs@1.15.7/Sortable.min.js"></script>
+  <script defer src="https://cdn.jsdelivr.net/npm/split.js@1.6.5/dist/split.min.js"></script>
+  <script defer src="/static/app.js"></script>
+</head>
+<body>
+  <div id="app-root" class="app-root">
+    <header class="app-header">
+      <h1 class="app-title">Character Replacement</h1>
+      <p id="app-status" class="app-status" role="status" aria-live="polite" hidden></p>
+    </header>
+
+    <main id="app-layout" class="app-layout">
+      <aside id="mapper-library" class="app-column mapper-library" aria-labelledby="mapper-library-title">
+        <header class="column-header">
+          <h2 id="mapper-library-title">Available mappers</h2>
+        </header>
+        <div id="mapper-catalog" class="mapper-catalog" aria-live="polite">
+          <p class="loading-message">Loading mappers…</p>
+        </div>
+      </aside>
+
+      <section id="mapper-sequence" class="app-column mapper-sequence" aria-labelledby="mapper-sequence-title">
+        <header class="column-header">
+          <h2 id="mapper-sequence-title">Transformation sequence</h2>
+        </header>
+        <div id="pipeline-list" class="pipeline-list" aria-label="Ordered transformation blocks">
+          <p id="pipeline-empty" class="pipeline-empty">
+            Drag mappers here to build a transformation sequence.
+          </p>
+        </div>
+      </section>
+
+      <section id="workspace" class="workspace" aria-label="Input and result">
+        <section id="input-panel" class="workspace-panel input-panel" aria-labelledby="input-title">
+          <header class="panel-header">
+            <h2 id="input-title">Input</h2>
+            <div class="panel-header__actions">
+              <button
+                id="copy-input"
+                class="copy-button"
+                data-copy-target="input"
+                type="button"
+                aria-label="Copy input text"
+              >Copy</button>
+              <button id="clear-input" class="clear-input-button" type="button">Clear</button>
+            </div>
+          </header>
+          <textarea
+            id="source-text"
+            class="source-text"
+            placeholder="Your text"
+            aria-label="Your text"
+            spellcheck="false"
+          ></textarea>
+        </section>
+
+        <section id="result-panel" class="workspace-panel result-panel" aria-labelledby="result-title">
+          <header class="panel-header">
+            <h2 id="result-title">Result</h2>
+            <div class="panel-header__actions">
+              <p id="result-status" class="result-status" role="status" aria-live="polite" hidden></p>
+              <button
+                id="copy-result"
+                class="copy-button"
+                data-copy-target="result"
+                type="button"
+                aria-label="Copy result text"
+              >Copy</button>
+            </div>
+          </header>
+          <textarea
+            id="result-text"
+            class="result-text"
+            placeholder="Result"
+            aria-label="Result"
+            readonly
+            spellcheck="false"
+          ></textarea>
+        </section>
+      </section>
+    </main>
+  </div>
+</body>
+</html>
