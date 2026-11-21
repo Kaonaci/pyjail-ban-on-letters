@@ -55,7 +55,7 @@ The tool supports combining multiple transformations into a single processing pi
 Clone the repository:
 
 ```bash
-git clone 
+git clone https://github.com/Kaonaci/pyjail-ban-on-letters
 cd pyjail-ban-on-letters
 ```
 
