@@ -1,6 +1,6 @@
 from fastapi import APIRouter
 
-from ..mappers.mapper import Mapper
+from ..interfaces.mapper import Mapper
 from ..services.char_replacer import CharReplacer
 from .schemas import (
     DefaultAlphabetResponse,

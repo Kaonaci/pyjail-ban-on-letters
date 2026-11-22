@@ -1,4 +1,4 @@
-from .mapper import Mapper
+from ..interfaces.mapper import Mapper
 
 
 class AsciiToOctMapper(Mapper):
@@ -12,7 +12,7 @@ class AsciiToOctMapper(Mapper):
         if len(char) != 1:
             raise ValueError
         char_ord = ord(char)
-        if 0x00 <= ord(char) <= 0xFF:
+        if 0x00 <= char_ord <= 0xFF:
             return f'\\{char_ord:03o}'
         return char 
 

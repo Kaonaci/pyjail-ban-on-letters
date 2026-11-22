@@ -1,6 +1,6 @@
 from string import ascii_letters
 
-from .mapper import Mapper
+from ..interfaces.mapper import Mapper
 
 
 class AsciiToBoldItalicUnicodeMapper(Mapper):
@@ -14,9 +14,9 @@ class AsciiToBoldItalicUnicodeMapper(Mapper):
         if len(char) != 1:
             raise ValueError
         char_ord = ord(char)
-        if 0x41 <= ord(char) <= 0x5a:
+        if 0x41 <= char_ord <= 0x5a:
             return chr(char_ord + 0x1D468 - 0x41)
-        elif 0x61 <= ord(char) <= 0x7a:
+        elif 0x61 <= char_ord <= 0x7a:
             return chr(char_ord + 0x1D482 - 0x61)
         return char
 

@@ -1,6 +1,6 @@
 from string import ascii_letters
 
-from .mapper import Mapper
+from ..interfaces.mapper import Mapper
 
 
 class AsciiToItalicUnicodeMapper(Mapper):
@@ -17,9 +17,9 @@ class AsciiToItalicUnicodeMapper(Mapper):
         if char == "h":
             # Italic h doesn't exist as 0x1d455
             return chr(0x210E)
-        if 0x41 <= ord(char) <= 0x5a:
+        if 0x41 <= char_ord <= 0x5a:
             return chr(char_ord + 0x1D434 - 0x41)
-        elif 0x61 <= ord(char) <= 0x7a:
+        elif 0x61 <= char_ord <= 0x7a:
             return chr(char_ord + 0x1D44E - 0x61)
         return char
 

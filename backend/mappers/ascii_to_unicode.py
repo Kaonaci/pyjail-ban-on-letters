@@ -1,4 +1,4 @@
-from ..mappers import Mapper
+from ..interfaces.mapper import Mapper
 
 
 class AsciiToUnicodeMapper(Mapper):
